@@ -8,7 +8,7 @@ const useMenu = () => {
   const axiospublic = useAxiosPublic();
 
   useEffect(() => {
-    axiospublic.get('menu').then((res) => setMenu(res.data));
+    axiospublic.get('/menu').then((res) => setMenu(res.data));
   }, []);
 
   return [menu];
