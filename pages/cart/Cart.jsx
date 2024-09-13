@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
 import CartItem from '../../src/components/cart/CartItem';
 import useCart from '../../src/Hooks/useCart';
-import { CartContext } from '../../src/provider/AuthContext';
+import AuthContext, { CartContext } from '../../src/provider/AuthContext';
 import Checkout from './Checkout';
 
 const Cart = () => {

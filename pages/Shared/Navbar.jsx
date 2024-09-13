@@ -10,6 +10,7 @@ const Navbar = () => {
   const [theme, setTheme] = useState("light");
   const { user, logOut } = useContext(AuthContext);
   const { refetch } = useCart();
+  console.log(user);
 
   function handleTheme() {
     function toggleTheme(currentTheme) {
