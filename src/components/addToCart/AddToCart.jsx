@@ -1,6 +1,6 @@
-import { IoCartOutline } from 'react-icons/io5';
+import { IoCartOutline } from "react-icons/io5";
 
-import useCart from '../../Hooks/useCart';
+import useCart from "../../Hooks/useCart";
 
 const AddToCart = () => {
   const { cart } = useCart();

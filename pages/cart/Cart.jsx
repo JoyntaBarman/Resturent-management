@@ -5,7 +5,7 @@ import { CartContext } from '../../src/provider/AuthContext';
 import Checkout from './Checkout';
 
 const Cart = () => {
-  const { totalItem, setTotal, setShipingCost } = useContext(CartContext);
+  const { setTotal, setShipingCost } = useContext(CartContext);
   const { cart } = useCart();
 
   useEffect(() => {

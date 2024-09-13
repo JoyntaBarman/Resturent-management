@@ -6,7 +6,7 @@ import {
 import { useState } from 'react';
 import useAxiosPublic from '../../src/Hooks/useAxiosPublic';
 
-const CheckoutForm = () => {
+const CheckoutForm = ({cart}) => {
   const stripe = useStripe();
   const elements = useElements();
   const axios = useAxiosPublic();
@@ -16,7 +16,7 @@ const CheckoutForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (elements == null) {
+    if (!stripe || !elements) {
       return;
     }
 
@@ -25,13 +25,14 @@ const CheckoutForm = () => {
       setErrorMessage(submitError.message);
     }
 
-    const res = await axios.post('/create-intent');
+    const res = (await axios.post('/checkout', {body: cart})).data;
+    console.log('checkout', res)
 
-    const { client_secret: clientSecret } = await res.json();
+    const { client_secret: clientSecret} = await res.json();
 
     const { error } = await stripe.confirmPayment({
       elements,
-      clientSecret,
+      clientSecret: 'skjfa',
       confirmParams: {
         return_url: 'https://google.com',
       },
